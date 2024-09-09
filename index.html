@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Como que eu vou dizer pra ela</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .bg {
+            background-image: url("https://c0.wallpaperflare.com/preview/140/768/942/brasil-nova-friburgo-por-do-sol.jpg");
+            background-size: cover;
+        }
+        #button-nao {
+            position: absolute;
+            left: 220px;
+        }
+    </style>
+</head>
+<body>
+    <div class="text-white text-shadow bg flex flex-col justify-start items-center gap-10 h-screen w-screen bg-gray-200 p-5 relative">
+        <h2 id="cantada" class="mt-20 font-bold text-center">"Mas iludido que eu só o Thanos que achou que tinha todas as jóias, mas faltou você!"</h2>
+        <img id="capa-naruto" src="icon.jpg" alt="naruto-corado" class="w-44 border-4 border-white">
+
+        <div id="container" class="flex justify-center items-center gap-5 w-full h-auto hidden mt-8">
+            <button id="button-sim" class="w-24 h-10 rounded-lg bg-green-500 text-white shadow">
+                Sim
+            </button>
+            <button id="button-nao" class="w-24 h-10 rounded-lg bg-red-500 text-white shadow">
+                Não
+            </button>
+            <div class="w-24"></div>
+        </div>
+    </div>
+    <script>
+        window.addEventListener("load", () => {
+            var title = document.getElementById("cantada");
+            var buttons = document.getElementById("container");
+            var buttoNop = document.getElementById("button-nao");
+            var buttonSim = document.getElementById("button-sim")
+
+            setTimeout(() => {
+                title.textContent = "- Então doutora, estou mal, hackearam meu coração, podemos marcar a sessão de recuperação?";
+                buttons.classList.remove("hidden");
+            }, 2000);
+
+            buttoNop.addEventListener("mouseover", () => {
+                Correr();
+            });
+
+            const Correr = () => {
+                const nop = document.getElementById("button-nao");
+                let width = window.innerWidth;
+                let height = window.innerHeight;
+                
+                let maxX = width - nop.offsetWidth;
+                let maxY = height - nop.offsetHeight;
+
+                let positionX = Math.floor(Math.random() * maxX);
+                let positionY = Math.floor(Math.random() * maxY);
+
+                nop.style.left = positionX + "px";
+                nop.style.top = positionY + "px";
+            }
+        });
+    </script>
+</body>
+</html>
