@@ -14,15 +14,28 @@
             position: absolute;
             left: 220px;
         }
+
+        @keyframes pulse {
+            0%, 100% { 
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2); 
+            }
+        }
+
+        .anima {
+            animation: pulse 2s infinite;;
+        }
     </style>
 </head>
 <body>
     <div class="text-white text-shadow bg flex flex-col justify-start items-center gap-10 h-screen w-screen bg-gray-200 p-5 relative">
         <h2 id="cantada" class="mt-20 font-bold text-center">"Mas iludido que eu só o Thanos que achou que tinha todas as jóias, mas faltou você!"</h2>
-        <img id="capa-naruto" src="img/icon.jpg" alt="naruto-corado" class="w-44 border-4 border-white">
+        <img id="capa" src="https://i.pinimg.com/736x/66/49/81/66498147a26006e130cb4a19e9511e9e.jpg" alt="naruto-corado" class="w-44 border-4 border-white">
 
-        <div id="container" class="flex justify-center items-center gap-5 w-full h-auto hidden mt-8">
-            <button id="button-sim" class="w-24 h-10 rounded-lg bg-green-500 text-white shadow">
+        <div id="container" class="flex justify-center items-center gap-5 w-full h-auto hidden mt-5">
+            <button id="button-sim" class="w-24 h-10 rounded-lg bg-green-500 text-white shadow anima">
                 Sim
             </button>
             <button id="button-nao" class="w-24 h-10 rounded-lg bg-red-500 text-white shadow">
@@ -36,11 +49,13 @@
             var title = document.getElementById("cantada");
             var buttons = document.getElementById("container");
             var buttoNop = document.getElementById("button-nao");
-            var buttonSim = document.getElementById("button-sim")
+            var buttonSim = document.getElementById("button-sim");
+            var capa = document.getElementById("capa")
 
             setTimeout(() => {
-                title.textContent = "- Você hackeou meu coração, preciso de uma sessão de recuperação ( Um açai, bora? kkkkj";
+                title.textContent = "- Estou precisando de uma sessão, hackearam meus sistemas ( açaizinho, bora? kkkkkj";
                 buttons.classList.remove("hidden");
+                capa.setAttribute("src","img/icon.jpg")
             }, 7000);
 
             buttoNop.addEventListener("mouseover", () => {
